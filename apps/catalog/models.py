@@ -1,5 +1,3 @@
-import datetime
-
 from django.db import models
 
 NULLABLE = {'null': True, 'blank': True}
@@ -27,8 +25,6 @@ class Product(models.Model):
     price = models.PositiveIntegerField(verbose_name='Цена продукта')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
-    manufactured_at = models.DateTimeField(default=datetime.date(1900, 1, 1),
-                                           verbose_name='Дата производства продукта')
 
     def __str__(self):
         return f'{self.name} - {self.price} руб.'
