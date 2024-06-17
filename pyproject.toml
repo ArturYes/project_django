@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "project-artur"
+version = "0.1.0"
+description = ""
+authors = ["artur <youzen0you@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.6"
+psycopg2-binary = "^2.9.9"
+pillow = "^10.3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.25.0"
+flake8 = "^7.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
