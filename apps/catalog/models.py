@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 
 NULLABLE = {'null': True, 'blank': True}
@@ -20,11 +22,13 @@ class Product(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название продукта")
     description = models.TextField(verbose_name="Описание продукта")
     image = models.ImageField(upload_to='catalog/product/', default='catalog/product/default_logo_product.png',
-                                                                    **NULLABLE, verbose_name="Фото продукта")
+                              **NULLABLE, verbose_name="Фото продукта")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
     price = models.PositiveIntegerField(verbose_name='Цена продукта')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
+    manufactured_at = models.DateTimeField(default=datetime.date(1900, 1, 1),
+                                           verbose_name='Дата производства продукта')
 
     def __str__(self):
         return f'{self.name} - {self.price} руб.'
@@ -32,4 +36,3 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
-
