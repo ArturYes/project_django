@@ -1,0 +1,28 @@
+.article-container {
+    display: flex;
+    justify-content: center;
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.article-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+}
+
+.article-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.article-content {
+    text-align: center;
+    padding: 10px;
+}

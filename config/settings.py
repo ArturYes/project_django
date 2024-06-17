@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'apps.catalog',
+    'apps.blog',
 ]
 
 MIDDLEWARE = [
@@ -90,6 +91,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'apps', 'catalog', 'static'),
+    os.path.join(BASE_DIR, 'apps', 'blog', 'static'),
 ]
 
 MEDIA_URL = '/media/'

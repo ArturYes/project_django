@@ -1,6 +1,8 @@
 import json
+
 from django.core.management import BaseCommand
 from django.db import connection
+
 from apps.catalog.models import Category, Product
 from config.settings import BASE_DIR
 

@@ -1,0 +1,40 @@
+{% extends 'catalog/base.html' %}
+
+{% load static %}
+
+{% block style %}
+<link href="{% static 'main/css/articles.css' %}" rel="stylesheet">
+{% endblock style %}
+
+{% block content %}
+
+<div class="container">
+  <div class="d-flex flex-row-reverse bd-highlight">
+    <a href="{% url 'blog:article_create' %}" class="btn btn-primary" type="submit">Создать</a>
+  </div>
+  {% for object in object_list %}
+  
+  <div class="article border-primary">
+    <div class="row">
+      <div class="col-sm">
+        <img src="{{ object.image.url }}" class="img-fluid" alt="Responsive image" style="width:130%">
+      </div>
+      <div class="col-sm"></div>
+      <div class="col-sm">
+        <div class="text-right">
+          <small class="text-muted">{{ object.created_at }}</small><br>
+          <small class="text-muted">Просмотров: {{ object.count_views }}</small>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><a href="{% url 'blog:article_detail' object.slug %}">{{ object.title }}</a></h5>
+      <p class="card-text">{{ object.text|truncatewords:100 }}</p>
+    </div>
+  
+  </div>
+  
+  {% endfor %}
+</div>
+
+{% endblock content %}

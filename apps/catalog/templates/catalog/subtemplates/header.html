@@ -3,7 +3,7 @@
 <div class="container">
     <div class="d-flex flex-md-row align-items-center pb-3 mb-4 border-bottom">
 
-        <a href="{% url 'catalog:catalog' %}" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+        <a href="{% url 'catalog:product_list' %}" class="d-flex align-items-center link-body-emphasis text-decoration-none">
           <span>
             <div class="text-left">
               <h1 class="display-4">Shop-tech</h1>
@@ -15,7 +15,8 @@
         <nav class="navbar navbar-light">
             <div class="row">
                 <div class="p-2 mx-auto ">
-                  <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:catalog' %}">Каталог</a>
+                  <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product_list' %}">Каталог</a>
+                  <a class="p-2 btn btn-outline-primary" href="{% url 'blog:article_list' %}">Блог о нас</a>
                   <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:contacts' %}">Контакты</a>
                 </div>
             </div>
