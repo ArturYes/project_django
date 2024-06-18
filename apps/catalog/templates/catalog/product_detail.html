@@ -4,7 +4,7 @@
 {% load my_tags %}
 
 <div class="container">
-  
+  {% if user.is_authenticated %}
   <div class="d-flex justify-content-between align-items-center">
     <div class="btn-group">
       <a href="{% url 'catalog:product_update' object.pk %}"
@@ -13,10 +13,12 @@
          class="btn btn-sm btn-outline-secondary">Удалить</a>
     </div>
   </div>
+  {% endif %}
   
   <div class="row no-gutters">
     <div class="col-6 col-md-4">
       <img src="{{ object.image|media_url }}" class="img-fluid" alt="Responsive image">
+      <p>Продавец: {{ object.owner|default:'неизвестно' }}</p>
       {% if active_version %}
       <p>Версии в наличии:</p>
       <ul>

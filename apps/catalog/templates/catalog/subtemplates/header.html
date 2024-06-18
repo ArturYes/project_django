@@ -1,26 +1,38 @@
 {% load static %}
 <!--Header web-site-->
 <div class="container">
-    <div class="d-flex flex-md-row align-items-center pb-3 mb-4 border-bottom">
-
-        <a href="{% url 'catalog:product_list' %}" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+  <div class="d-flex flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    
+    <a href="{% url 'catalog:product_list' %}"
+       class="d-flex align-items-center link-body-emphasis text-decoration-none">
           <span>
             <div class="text-left">
               <h1 class="display-4">Shop-tech</h1>
               <p class="lead">Найди свой телефон у нас!</p>
             </div>
             </span>
-        </a>
-
-        <nav class="navbar navbar-light">
-            <div class="row">
-                <div class="p-2 mx-auto ">
-                  <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product_list' %}">Каталог</a>
-                  <a class="p-2 btn btn-outline-primary" href="{% url 'blog:article_list' %}">Блог о нас</a>
-                  <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:contacts' %}">Контакты</a>
-                </div>
-            </div>
-
-        </nav>
-    </div>
+    </a>
+    
+    <nav class="navbar navbar-light">
+      <div class="row">
+        <div class="p-2 mx-auto">
+          <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product_list' %}">Каталог</a>
+          <a class="p-2 btn btn-outline-primary" href="{% url 'blog:article_list' %}">Блог о нас</a>
+          <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:contacts' %}">Контакты</a>
+          
+          
+          {% if user.is_authenticated %}
+          <a class="p-2 btn btn-primary mr-1" href="{% url 'users:profile' %}">Профиль</a>
+            <form action="{% url 'users:logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="p-2 btn btn-danger mr-1">Выйти</button>
+            </form>
+          {% else %}
+          <a class="p-2 btn btn-success mr-1" href="{% url 'users:login' %}">Войти</a>
+          <a class="p-2 btn btn-warning" href="{% url 'users:register' %}">Регистрация</a>
+          {% endif %}
+        </div>
+    
+    </nav>
+  </div>
 </div>

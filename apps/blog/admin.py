@@ -5,6 +5,6 @@ from apps.blog.models import Article
 
 @admin.register(Article)
 class ArticlesAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'title', 'is_publication', 'count_views',)
+    list_display = ('pk', 'title', 'is_publication', 'count_views', 'owner',)
     list_filter = ('title',)
     search_fields = ('title',)

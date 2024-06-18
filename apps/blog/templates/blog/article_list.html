@@ -9,9 +9,11 @@
 {% block content %}
 
 <div class="container">
+  {% if user.is_authenticated %}
   <div class="d-flex flex-row-reverse bd-highlight">
     <a href="{% url 'blog:article_create' %}" class="btn btn-primary" type="submit">Создать</a>
   </div>
+  {% endif %}
   {% for object in object_list %}
   
   <div class="article border-primary">
@@ -23,7 +25,8 @@
       <div class="col-sm">
         <div class="text-right">
           <small class="text-muted">{{ object.created_at }}</small><br>
-          <small class="text-muted">Просмотров: {{ object.count_views }}</small>
+          <small class="text-muted">Просмотров: {{ object.count_views }}</small><br>
+          <small class="text-muted">Автор: {{ object.owner|default:'неизвестен' }}</small>
         </div>
       </div>
     </div>

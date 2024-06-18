@@ -1,0 +1,128 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "Xiaomi Redmi 13 NFC",
+      "description": "Емкость аккумулятора\t5030 мА⋅ч\r\nДисплей\t6.79 (2400x1080), Full HD, IPS\r\nОперативная память\t6 ГБ\r\nПроцессор\tMediatek Helio G91 Ultra\r\nКоличество SIM-карт\tDual nano SIM\r\nВстроенная память\t128 ГБ\r\nПоддержка NFC\tесть\r\nБеспроводные интерфейсы\tBluetooth, NFC, Wi-Fi\r\nСтандарт связи\t4G LTE\r\nФункции зарядки\tбыстрая зарядка",
+      "image": "catalog/product/xiaomi-redmi-13_NXoicJy.jpg",
+      "category": 1,
+      "price": 14900,
+      "created_at": "2024-06-17T10:32:17.226Z",
+      "updated_at": "2024-06-18T10:56:50.736Z",
+      "owner": 1
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "Xiaomi Poco Pad 8/256Gb Grey (Global)",
+      "description": "Процессор\tQualcomm Snapdragon 7s Gen 2\r\nВстроенная память\t256 ГБ\r\nОперативная память\t8 ГБ\r\nТип\tпланшет\r\nЭкран\t12.1 (2560x1600), 120 Гц\r\nТип экрана\tIPS\r\nЕмкость аккумулятора\t10000 мАч\r\nВерсия ОС\tAndroid 14, HyperOS",
+      "image": "catalog/product/xiaomi-poco-pad-8_Nz1U78v.jpg",
+      "category": 3,
+      "price": 27690,
+      "created_at": "2024-06-17T10:32:17.226Z",
+      "updated_at": "2024-06-18T11:01:31.772Z",
+      "owner": 1
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "ASUS Vivobook 15 X1504ZA-BQ1150",
+      "description": "Оперативная память\t16 ГБ\r\nГрафический чипсет\tIntel Iris Xe graphics\r\nПроцессор\tIntel Core i7 1255U\r\nДиагональ экрана\t15.6\r\nКоличество ядер процессора\t10\r\nЧастота процессора\t1700 МГц\r\nТип\tНоутбук\r\nОперационная система\tбез ОС\r\nМатериал корпуса\tвысококачественный пластик\r\nОбщий объем накопителей SSD\t512 ГБ",
+      "image": "catalog/product/asus-vivobook-15_B4vFFbp.jpg",
+      "category": 2,
+      "price": 60760,
+      "created_at": "2024-06-17T10:32:17.226Z",
+      "updated_at": "2024-06-18T11:01:48.179Z",
+      "owner": 1
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "name": "Apple iPhone 15 Pro Max 256Gb Black Titanium (A2849, LL)",
+      "description": "Дисплей\t6.7\" (2796x1290), 2K QHD, OLED\r\nОперативная память\t8 ГБ\r\nПроцессор\tApple A17 Pro\r\nКоличество SIM-карт\tDual: eSIM\r\nВстроенная память\t256 ГБ\r\nПоддержка карт памяти\tнет\r\nПоддержка NFC\tесть\r\nБеспроводные интерфейсы\tBluetooth, NFC, Wi-Fi\r\nСтандарт связи\t5G\r\nФункции зарядки\tбеспроводная зарядка, быстрая зарядка",
+      "image": "catalog/product/apple-iphone-15-pro-max_buslpGj.jpg",
+      "category": 1,
+      "price": 110490,
+      "created_at": "2024-06-17T12:13:36.705Z",
+      "updated_at": "2024-06-18T10:53:21.625Z",
+      "owner": 1
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "name": "Sony Xperia 1 VI (XQ-EC72) 256Gb+12Gb Dual 5G Black (HK)",
+      "description": "Емкость аккумулятора\t5000 мА⋅ч\r\nДисплей\t6.5 (1080 x 2340)\r\nОперативная память\t12 ГБ\r\nПроцессор\tQualcomm Snapdragon 8 Gen 3\r\nКоличество SIM-карт\tDual nano SIM\r\nВстроенная память\t256 ГБ\r\nПоддержка NFC\tесть\r\nБеспроводные интерфейсы\tBluetooth, NFC, Wi-Fi\r\nСтандарт связи\t5G\r\nФункции зарядки\tбеспроводная зарядка, быстрая зарядка",
+      "image": "catalog/product/sony-xperia-1-vi-xq-ec72_FBPXlG2.jpg",
+      "category": 1,
+      "price": 106990,
+      "created_at": "2024-06-17T12:15:01.507Z",
+      "updated_at": "2024-06-17T12:15:01.507Z",
+      "owner": 1
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "name": "MSI Pulse 17 B13VGK-813XRU",
+      "description": "Оперативная память\t16 ГБ\r\nГрафический чипсет\tNVIDIA GeForce RTX 4070\r\nПроцессор\tIntel Core i7 13700H\r\nДиагональ экрана\t17.3\r\nКоличество ядер процессора\t14\r\nЧастота процессора\t2400 МГц\r\nТип\tНоутбук\r\nОперационная система\tFree DOS\r\nМатериал корпуса\tметалл/пластик\r\nОбщий объем накопителей SSD\t1024 ГБ",
+      "image": "catalog/product/msi-pulse-17-b13vgk_DNoSK42.jpg",
+      "category": 2,
+      "price": 181670,
+      "created_at": "2024-06-17T12:16:09.997Z",
+      "updated_at": "2024-06-17T12:16:09.997Z",
+      "owner": 1
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "name": "Lenovo IdeaPad Flex 5 14IRU8",
+      "description": "Оперативная память\t16 ГБ\r\nГрафический чипсет\tIntel Iris Xe graphics\r\nПроцессор\tIntel Core i5 1335U\r\nДиагональ экрана\t14\r\nКоличество ядер процессора\t10\r\nЧастота процессора\t1300 МГц\r\nТип\tтрансформер\r\nОперационная система\tWindows 11 Home\r\nМатериал корпуса\tпластик/алюминий\r\nОбщий объем накопителей SSD\t256 ГБ",
+      "image": "catalog/product/lenovo-ideapad-flex-5-14iru8_hSDaIhD.jpg",
+      "category": 2,
+      "price": 82130,
+      "created_at": "2024-06-17T12:16:48.869Z",
+      "updated_at": "2024-06-17T12:16:48.869Z",
+      "owner": 1
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "name": "Blackview Tab Active 8 Pro",
+      "description": "Процессор\tMediaTek Helio G99 2000 МГц\r\nВстроенная память\t256 ГБ\r\nОперативная память\t8 ГБ\r\nКоличество ядер\t8\r\nТип\tпланшет\r\nПоддержка карт памяти\tmicroSD\r\nЭкран\t10.36 (2000x1200), IPS, 60 Гц\r\nМатериал корпуса\tпластик\r\nЕмкость аккумулятора\t22000 мАч\r\nСотовая связь\t2 SIM, 3G, 4G LTE\r\nВерсия ОС\tAndroid 13",
+      "image": "catalog/product/blackview-tab-active-8-pro_Ss3E4y4.jpg",
+      "category": 3,
+      "price": 22490,
+      "created_at": "2024-06-17T12:17:40.837Z",
+      "updated_at": "2024-06-17T12:17:40.837Z",
+      "owner": 1
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+      "name": "Oukitel Pad RT1",
+      "description": "Процессор\tMediaTek Helio P22T 2000 МГц\r\nВстроенная память\t64 ГБ\r\nОперативная память\t4 ГБ\r\nКоличество ядер\t8\r\nТип\tпланшет\r\nПоддержка карт памяти\tmicroSD\r\nЭкран\t10.1 (1920x1200), IPS, 60 Гц\r\nМатериал корпуса\tпластик\r\nЕмкость аккумулятора\t10000 мАч\r\nСотовая связь\t2 SIM, 4G LTE, 2 SIM, 4G LTE\r\nВерсия ОС\tAndroid 11",
+      "image": "catalog/product/oukitel-pad-rt1_PTpjMsi.jpg",
+      "category": 3,
+      "price": 18790,
+      "created_at": "2024-06-17T12:18:47.973Z",
+      "updated_at": "2024-06-17T12:18:47.973Z",
+      "owner": 1
+    }
+  }
+]

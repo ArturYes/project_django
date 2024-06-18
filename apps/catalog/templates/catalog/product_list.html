@@ -4,9 +4,11 @@
 {% block content %}
 {% load my_tags %}
 <div class="container">
+  {% if user.is_authenticated %}
   <div class="d-flex flex-row-reverse bd-highlight">
     <a href="{% url 'catalog:product_create' %}" class="btn btn-primary" type="submit">Добавить продукт</a>
   </div>
+  {% endif %}
   
   <div class="row text-center">
     {% for product in object_list %}
