@@ -10,10 +10,10 @@ config.read("config.ini")
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pvm)qg6%#4xqtl7@b^td3yg_fbtvua4gf@&$dp7vk)^*hqbv^-'
+SECRET_KEY = config['django']['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config['django']['DEBUG'] == 'True'
 
 ALLOWED_HOSTS = []
 
@@ -33,6 +33,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -40,6 +42,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -117,3 +121,13 @@ EMAIL_ADMIN = EMAIL_HOST_USER
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# Caches
+CACHE_ENABLED = config['caches']['CACHE_ENABLED'] == 'True'
+if CACHE_ENABLED:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": config['caches']['LOCATION'],
+        }
+    }

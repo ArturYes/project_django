@@ -6,12 +6,16 @@ from django.views.generic import ListView, DetailView, TemplateView, UpdateView,
 
 from apps.catalog.forms import ProductForm, VersionForm, ModeratorProductForm
 from apps.catalog.models import Product, Version, Category
+from apps.catalog.services import get_categories_from_cache, get_products_from_cache
 
 
 class ProductListView(ListView):
     template_name = 'catalog/product_list.html'
     model = Product
     extra_context = {'title': 'Каталог товаров'}
+
+    def get_queryset(self):
+        return get_products_from_cache()
 
 
 class ProductDetailView(LoginRequiredMixin, DetailView):
@@ -130,3 +134,21 @@ class ContactsView(TemplateView):
         message = request.POST.get('message')
         print(f'Имя: {name}, Номер: {phone}, Сообщение: {message}')
         return self.render_to_response(context)
+
+
+class CategoryListView(ListView):
+    model = Category
+    template_name = 'catalog/category_list.html'
+
+    def get_queryset(self):
+        return get_categories_from_cache()
+
+
+class CategoryDetailView(ListView):
+    model = Product
+    template_name = 'catalog/category_detail.html'
+
+    def get_queryset(self, *args, **kwargs):
+        queryset = super().get_queryset(*args, **kwargs)
+        queryset = queryset.filter(category=self.kwargs.get('pk'))
+        return queryset

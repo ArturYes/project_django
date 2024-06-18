@@ -9,3 +9,15 @@ port = your_port
 [admin]
 email = your_admin_email
 password = your_password
+
+[email]
+EMAIL_HOST_USER = your_email_host_user
+EMAIL_HOST_PASSWORD = your_email_host_password
+
+[caches]
+CACHE_ENABLED = True_or_False
+LOCATION = redis://host:port
+
+[django]
+DEBUG = True_or_False
+SECRET_KEY = DJANGO_SECRET_KEY
