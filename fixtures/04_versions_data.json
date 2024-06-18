@@ -1,0 +1,52 @@
+[
+{
+    "model": "catalog.version",
+    "pk": 4,
+    "fields": {
+        "product": 1,
+        "number_version": 2019,
+        "title_version": "Версия 2019 года",
+        "is_active": true
+    }
+},
+{
+    "model": "catalog.version",
+    "pk": 5,
+    "fields": {
+        "product": 1,
+        "number_version": 2021,
+        "title_version": "Версия 2021 года",
+        "is_active": true
+    }
+},
+{
+    "model": "catalog.version",
+    "pk": 6,
+    "fields": {
+        "product": 2,
+        "number_version": 2021,
+        "title_version": "Версия 2021 года",
+        "is_active": true
+    }
+},
+{
+    "model": "catalog.version",
+    "pk": 7,
+    "fields": {
+        "product": 2,
+        "number_version": 2023,
+        "title_version": "Версия 2023 года",
+        "is_active": false
+    }
+},
+{
+    "model": "catalog.version",
+    "pk": 8,
+    "fields": {
+        "product": 3,
+        "number_version": 2024,
+        "title_version": "Версия 2024 года",
+        "is_active": true
+    }
+}
+]

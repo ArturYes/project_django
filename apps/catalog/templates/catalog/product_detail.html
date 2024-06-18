@@ -2,18 +2,39 @@
 
 {% block content %}
 {% load my_tags %}
+
 <div class="container">
-    <div class="row no-gutters">
-        <div class="col-6 col-md-4">
-            <img src="{{ object.image|media_url }}" class="img-fluid" alt="Responsive image">
-        </div>
-        
-        <div class="col-12 col-sm-6 col-md-8">
-            <div class="col">
-                <p>{{object.description}}</p>
-            </div>
-        </div>
+  
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="btn-group">
+      <a href="{% url 'catalog:product_update' object.pk %}"
+         class="btn btn-sm btn-outline-secondary">Редактировать</a>
+      <a href="{% url 'catalog:product_delete' object.pk %}"
+         class="btn btn-sm btn-outline-secondary">Удалить</a>
     </div>
+  </div>
+  
+  <div class="row no-gutters">
+    <div class="col-6 col-md-4">
+      <img src="{{ object.image|media_url }}" class="img-fluid" alt="Responsive image">
+      {% if active_version %}
+      <p>Версии в наличии:</p>
+      <ul>
+        {% for version in object.version.all %}
+        <li>- {{ version.number_version }} - {{ version.title_version }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>Активная версия: отсутствует</p>
+      {% endif %}
+    </div>
+    
+    <div class="col-12 col-sm-6 col-md-8">
+      <div class="col">
+        <p>{{object.description}}</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 

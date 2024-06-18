@@ -4,9 +4,13 @@
 {% block content %}
 {% load my_tags %}
 <div class="container">
+  <div class="d-flex flex-row-reverse bd-highlight">
+    <a href="{% url 'catalog:product_create' %}" class="btn btn-primary" type="submit">Добавить продукт</a>
+  </div>
+  
   <div class="row text-center">
-          {% for product in object_list %}
-
+    {% for product in object_list %}
+    
     <div class="col-3">
       <div class="card">
         <img class="card-img-top" src="{{ product.image|media_url }}" alt="{{ product.name }}">
@@ -15,6 +19,16 @@
           <p class="card-text text-left">{{ product.description|truncatewords:20 }}</p>
           <p class="card-price"><b>{{ product.price }} руб.</b></p>
         </div>
+        {% if product.version.all %}
+        <p>Версии в наличии:</p>
+        <ul>
+          {% for version in product.version.all %}
+          <li>- {{ version.number_version }} - {{ version.title_version }}</li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>Активная версия: отсутствует</p>
+        {% endif %}
       </div>
     </div>
     {% endfor %}
