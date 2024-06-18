@@ -27,15 +27,21 @@ class Product(models.Model):
     price = models.PositiveIntegerField(verbose_name='Цена продукта')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL,
-                              **NULLABLE, verbose_name='Пользователь')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE,
+                              verbose_name='Пользователь')
+    is_published = models.BooleanField(default=False, verbose_name="Опубликовано")
+
     def __str__(self):
         return f'{self.name} - {self.price} руб.'
 
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
-
+        permissions = [
+            ('can_change_description', 'Can change description'),
+            ('can_change_category', 'Can change category'),
+            ('set_published_status', 'Set published status'),
+        ]
 
 class Version(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='version',

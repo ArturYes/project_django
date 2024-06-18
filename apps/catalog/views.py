@@ -1,9 +1,10 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.forms import inlineformset_factory
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, UpdateView, CreateView, DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin
 
-from apps.catalog.forms import ProductForm, VersionForm
+from apps.catalog.forms import ProductForm, VersionForm, ModeratorProductForm
 from apps.catalog.models import Product, Version, Category
 
 
@@ -30,7 +31,6 @@ class ProductDetailView(LoginRequiredMixin, DetailView):
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('users:login')
     model = Product
-    form_class = ProductForm
     extra_context = {"title": "Редактирование товара"}
 
     def get_success_url(self):
@@ -54,6 +54,25 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
             formset.save()
 
         return super().form_valid(form)
+
+    def get_form_class(self):
+        user = self.request.user
+        if user == self.object.owner or user.is_superuser:
+            return ProductForm
+        elif user.has_perms([
+            'catalog.can_change_category',
+            'catalog.can_change_description',
+            'catalog.set_published_status'
+        ]):
+            return ModeratorProductForm
+
+    def dispatch(self, request, *args, **kwargs):
+        user = self.request.user
+        if (user != self.get_object().owner and not user.is_superuser and
+                not user.groups.filter(name='Moderator').exists()):
+            raise PermissionDenied
+
+        return super().dispatch(request, *args, **kwargs)
 
 
 class ProductCreateView(LoginRequiredMixin, CreateView):
@@ -91,6 +110,13 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     extra_context = {"title": "Удаление товара"}
     success_url = reverse_lazy('catalog:product_list')
+
+    def dispatch(self, request, *args, **kwargs):
+        user = self.request.user
+        if user != self.get_object().owner and not user.is_superuser:
+            raise PermissionDenied
+
+        return super().dispatch(request, *args, **kwargs)
 
 
 class ContactsView(TemplateView):

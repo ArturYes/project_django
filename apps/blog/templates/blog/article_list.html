@@ -9,7 +9,7 @@
 {% block content %}
 
 <div class="container">
-  {% if user.is_authenticated %}
+  {% if perms.blog.add_article %}
   <div class="d-flex flex-row-reverse bd-highlight">
     <a href="{% url 'blog:article_create' %}" class="btn btn-primary" type="submit">Создать</a>
   </div>

@@ -1,10 +1,11 @@
+//Пароль 12345
 [
 {
     "model": "users.user",
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$720000$xZrhzYCI8puysApkQEaba5$Dd1JRGfjagy5AL7R+pqfzwN5x58R+qJaTlkxhr/2V3Q=",
-        "last_login": "2024-06-18T13:20:19.889Z",
+        "last_login": "2024-06-18T14:19:43.913Z",
         "is_superuser": true,
         "first_name": "",
         "last_name": "",
@@ -24,7 +25,7 @@
     "model": "users.user",
     "pk": 2,
     "fields": {
-        "password": "pbkdf2_sha256$720000$l9UB6PK6k8uy8DLqSiHcJl$g5bdIDa7Exy8H/w5lsICND4hNwWJvt8xZ0pdWuoyvD4=",
+        "password": "pbkdf2_sha256$720000$xZrhzYCI8puysApkQEaba5$Dd1JRGfjagy5AL7R+pqfzwN5x58R+qJaTlkxhr/2V3Q=",
         "last_login": "2024-06-18T13:23:39.120Z",
         "is_superuser": false,
         "first_name": "",
@@ -32,7 +33,7 @@
         "is_staff": false,
         "is_active": true,
         "date_joined": "2024-06-18T13:21:02.593Z",
-        "email": "user1@test.com",
+        "email": "user@test.com",
         "phone": null,
         "country": null,
         "avatar": "",
@@ -45,20 +46,45 @@
     "model": "users.user",
     "pk": 3,
     "fields": {
-        "password": "pbkdf2_sha256$720000$l9UB6PK6k8uy8DLqSiHcJl$g5bdIDa7Exy8H/w5lsICND4hNwWJvt8xZ0pdWuoyvD4=",
-        "last_login": "2024-06-18T13:23:39.120Z",
+        "password": "pbkdf2_sha256$720000$xZrhzYCI8puysApkQEaba5$Dd1JRGfjagy5AL7R+pqfzwN5x58R+qJaTlkxhr/2V3Q=",
+        "last_login": "2024-06-18T13:23:39Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2024-06-18T13:21:02.593Z",
-        "email": "user2@test.com",
+        "date_joined": "2024-06-18T13:21:02Z",
+        "email": "moderator@test.com",
         "phone": null,
         "country": null,
         "avatar": "",
         "token": null,
-        "groups": [],
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$xZrhzYCI8puysApkQEaba5$Dd1JRGfjagy5AL7R+pqfzwN5x58R+qJaTlkxhr/2V3Q=",
+        "last_login": "2024-06-18T14:19:23Z",
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-06-18T13:21:02Z",
+        "email": "content_manager@test.com",
+        "phone": null,
+        "country": null,
+        "avatar": "",
+        "token": null,
+        "groups": [
+            2
+        ],
         "user_permissions": []
     }
 }
