@@ -1,19 +1,21 @@
-import configparser
+from dotenv import load_dotenv
 import os
 from pathlib import Path
 
-# Getting data from the config.ini file
-config = configparser.ConfigParser()
-config.read("config.ini")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Getting data from the .env file
+dotenv_path = os.path.join(BASE_DIR, '.env')
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config['django']['SECRET_KEY']
+SECRET_KEY = os.getenv('django_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config['django']['DEBUG'] == 'True'
+DEBUG = os.getenv('django_DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = []
 
@@ -69,12 +71,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': f'django.db.backends.{config["data_database"]["engine"]}',
-        'NAME': config['data_database']['dbname'],
-        'USER': config['data_database']['user'],
-        'PASSWORD': config['data_database']['password'],
-        'HOST': config['data_database']['host'],
-        'PORT': config['data_database']['port'],
+        'ENGINE': f'django.db.backends.{os.getenv('db_engine')}',
+        'NAME': os.getenv('db_name'),
+        'USER': os.getenv('db_user'),
+        'PASSWORD': os.getenv('db_password'),
+        'HOST': os.getenv('db_host'),
+        'PORT': os.getenv('db_port'),
     }
 }
 
@@ -112,8 +114,8 @@ EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
-EMAIL_HOST_USER = config['email']['EMAIL_HOST_USER']  # email отправителя
-EMAIL_HOST_PASSWORD = config['email']['EMAIL_HOST_PASSWORD']  # пароль отправителя
+EMAIL_HOST_USER = os.getenv('email_EMAIL_HOST_USER')  # email отправителя
+EMAIL_HOST_PASSWORD = os.getenv('email_EMAIL_HOST_PASSWORD')  # пароль отправителя
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
@@ -123,11 +125,11 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 # Caches
-CACHE_ENABLED = config['caches']['CACHE_ENABLED'] == 'True'
+CACHE_ENABLED = os.getenv('caches_CACHE_ENABLED') == 'True'
 if CACHE_ENABLED:
     CACHES = {
         "default": {
             "BACKEND": "django.core.cache.backends.redis.RedisCache",
-            "LOCATION": config['caches']['LOCATION'],
+            "LOCATION":  os.getenv('caches_LOCATION'),
         }
     }

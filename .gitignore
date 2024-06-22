@@ -9,4 +9,4 @@
 poetry.lock
 
 # Private data
-config.ini
+.env
